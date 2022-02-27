@@ -43,3 +43,14 @@ img {
   width: 1920px;
   height: 980px;
 }
+
+.image {
+  position: relative;
+  display: inline-block;
+}
+
+.overlay {
+  position: absolute;
+  right: 0;
+  z-index: 5;
+}
