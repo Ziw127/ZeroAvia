@@ -13,33 +13,22 @@
         <div class="row">
             <div class="col">
                 <h1>Zero Avia - Level 1</h1>
-                <h3>Height Input</h3>
             
-                <form action="success.html" method="POST">
-                    <input title="" placeholder="Height" type="text" name="email_name" required><br>
-                    <input title="option1" placeholder="option1" type="number" min="50" max="300" name="height_name" required><br>
-                </form>
-                <h3>Weight Input</h3>
-                
-                <form action="success.html" method="POST">
-                    <input title="" placeholder="Weight" type="text" name="email_name" required><br>
-                    <input title="option1" placeholder="option1" type="number" min="50" max="300" name="height_name" required><br>
-                    
-                </form>
-                <h3>Voltage Input</h3>
-                
-                <form action="success.html" method="POST">
-                    <input title="" placeholder="Voltage" type="text" name="email_name" required><br>
-                    <input title="option1" placeholder="option1" type="number" min="50" max="300" name="height_name" required><br>
+                <form action="{{url_for('success')}}" method="POST">
+                    <h3>Weight Input</h3>
+                    <input title="" placeholder="Please enter Height here" type="number" name="height_name" required><br>
+                    <h3>Voltage Input</h3>
+                    <input title="" placeholder="Please enter Voltage here" type="number" name="voltage_name" required><br>
                     <button type="submit">Submit</button>
+                    <!-- <input title="option1" placeholder="option1" type="number" min="50" max="300" name="height_name" required><br> -->
                 </form>
+                   
             </div>
 
-            <div class="col">
-                <h1>Graph</h1>
-                <img src="https://images.unsplash.com/photo-1586448317606-cb1ec00298fc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZGF0YSUyMGdyYXBofGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" class="img-fluid" alt="...">
-            </div>
-             
+
+            <h1>Graph</h1>
+            <img src="https://images.unsplash.com/photo-1586448317606-cb1ec00298fc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZGF0YSUyMGdyYXBofGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" class="img-fluid" alt="...">
+            
         </div>
          
     </div>
