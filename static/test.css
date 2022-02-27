@@ -38,3 +38,8 @@ body {
 .container p {
   margin: 100px;
 }
+
+img {
+  width: 1920px;
+  height: 980px;
+}
