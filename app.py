@@ -185,7 +185,7 @@ def success():
         inverterdata = Inverter(inv_maxPower,maxHVDC,minHVDC,maxcoolInlet,mincoolInlet,
                                 maxHDVCcur,mass,involume,swfreqency,invEfficiency)
         db.session.add(inverterdata)
-        db.session.commit()
+       
 
         # Motor
         numMotors = request.form["mo_n"]

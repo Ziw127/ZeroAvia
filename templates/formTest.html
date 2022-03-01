@@ -36,52 +36,78 @@
         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
           <div class="accordion-body">
             <div class = "container">
-                <form action="{{url_for('success')}}" method="POST">
-                    <div class="col">
+                <form action="{{url_for('success')}}" method="POST"></form>
+                    <div class = "row">
+                        <div class="col">
 
                         <h2 style="color:rgb(219, 166, 18)">Fuel Tank</h2>
 
-                        <h3>Weight (kg)</h3>
-                        <input title="option1" placeholder="Please enter Mass" type="number" min="0" name="ft_w" required><br>
+                            <div class = "input">
+                                <h3>Mass (kg)</h3>
+                                <input title="option1" placeholder="Please enter Mass" type="number" min="0" name="ft_m" required><br>
+                            </div>
 
-                        <h3>Volume (L)</h3>
-                        <input title="option1" placeholder="Please enter Volume" type="number" min="0" name="ft_vol" required><br>
+                            <div class = "input">
+                                <h3>Volume (L)</h3>
+                                <input title="option1" placeholder="Please enter Volume" type="number" min="0" name="ft_vol" required><br>
+                            </div>
 
-                        <h3>Specific Energy (kWh/kg)</h3>
-                        <input title="" placeholder="Please enter Specific Energy" type="number" min="0" name="spec_e" required><br>
+                            <div class = "input">
+                                <h3>Specific Energy (kWh/kg)</h3>
+                                <input title="" placeholder="Please enter Specific Energy" type="number" min="0" name="spec_e " required><br>
+                            </div>
 
-                        <h3>Energy Density (kWh/L)</h3>
-                        <input title="" placeholder="Please enter Energy Density" type="number" min="0" name="e_density" required><br>
+                            <div class = "input">
+                                <h3>Energy Density (kWh/L)</h3>
+                                <input title="" placeholder="Please enter Energy Density" type="number" min="0" name="e_density" required><br>
+                            </div>
 
-                        <h3>Minumum Fuel Weight (kg)</h3>
-                        <input title="option1" placeholder="Please enter Minumum Fuel Weight" type="number" min="0" name="ft_min" required><br>
+                            <div class = "input">
+                                <h3>Minumum Fuel Weight (kg)</h3>
+                                <input title="option1" placeholder="Please enter Minumum Fuel Weight" type="number" min="0" name="ft_min" required><br>
+                            </div>
 
-                        <h3>Maximum Fuel Weight (kg)</h3>
-                        <input title="option1" placeholder="Please enter Maximum Fuel Weight" type="number" min="0" name="ft_max" required><br>
+                            <div class = "input">
+                                <h3>Maximum Fuel Weight (kg)</h3>
+                                <input title="option1" placeholder="Please enter Maximum Fuel Weight" type="number" min="0" name="ft_max" required><br>
+                            </div>
 
-                        <h3>Worst Case Efficiency (%)</h3>
-                        <input title="option1" placeholder="Please enter Worst Case Efficiency" type="number" min="0" name="ft_wce" required><br>
-                        
+                            <div class = "input">
+                                <h3>Worst Case Efficiency (%)</h3>
+                                <input title="option1" placeholder="Please enter Worst Case Efficiency" type="number" min="0" name="ft_wce" required><br>
+                            </div>
 
                         <h2 style="color:rgb(219, 166, 18)">Fuel Cell</h2>
 
-                        <h3>Power Rating (kWh)</h3>
-                        <input title="option1" placeholder="Please enter Power Rating" type="number" min="0" name="fc_pow" required><br>
+                            <div class = "input">
+                                <h3>Power Rating (kWh)</h3>
+                                <input title="option1" placeholder="Please enter Power Rating" type="number" min="0" name="fc_pow" required><br>
+                            </div>
 
-                        <h3>Weight (kg)</h3>
-                        <input title="option1" placeholder="Please enter Mass" type="number" min="0" name="fc_m" required><br>
+                            <div class = "input">
+                                <h3>Mass (kg)</h3>
+                                <input title="option1" placeholder="Please enter Mass" type="number" min="0" name="fc_m" required><br>
+                            </div>
 
-                        <h3>Volume (L)</h3>
-                        <input title="option1" placeholder="Please enter Volume" type="number" min="0" name="fc_vol" required><br>
+                            <div class = "input">
+                                <h3>Volume (L)</h3>
+                                <input title="option1" placeholder="Please enter Volume" type="number" min="0" name="fc_vol" required><br>
+                            </div>
 
-                        <h3>Rated Voltage (V)</h3>
-                        <input title="option1" placeholder="Please enter Rated Voltage" type="number" min="0" name="fc_rvol" required><br>
+                            <div class = "input">
+                                <h3>Rated Voltage (V)</h3>
+                                <input title="option1" placeholder="Please enter Rated Voltage" type="number" min="0" name="fc_rvol" required><br>
+                            </div>
 
-                        <h3>Heat Leakage (kWh) </h3>
-                        <input title="option1" placeholder="Please enter Heat Leakage" type="number" min="0" name="fc_enth" required><br>
+                            <div class = "input">
+                                <h3>Heat Leakage (kWh) </h3>
+                                <input title="option1" placeholder="Please enter Heat Leakage" type="number" min="0" name="fc_enth" required><br>
+                            </div>
 
-                        <h3>Fuel Consumption (m^3/h)</h3>
-                        <input title="option1" placeholder="Please enter Fuel Consumption" type="number" min="0" name="fc_cons" required><br>
+                            <div class = "input">
+                                <h3>Fuel Consumption (m^3/h)</h3>
+                                <input title="option1" placeholder="Please enter Fuel Consumption" type="number" min="0" name="fc_cons" required><br>
+                            </div>
 
                         <h3>Worst Case Efficiency (%)</h3>
                         <input title="option1" placeholder="Please enter Worst Case Efficiency" type="number" min="0" max="100" name="fc_wce" required><br>
@@ -89,23 +115,35 @@
                          
                         <h2 style="color:rgb(219, 166, 18)">Power Distro. Unit</h2>
 
-                        <h3>HVDC Cable Conductor Diameter (AWG)</h3>
-                        <input title="option1" placeholder="Please enter HVDC Cable Conductor Diameter" type="number" min="0" name="hvdc_diam" required><br>
+                            <div class = "input">
+                                <h3>HVDC Cable Conductor Diameter (AWG)</h3>
+                                <input title="option1" placeholder="Please enter HVDC Cable Conductor Diameter" type="number" min="0" name="hvdc_diam" required><br>
+                            </div>
 
-                        <h3>Minimum Insulation Rating (V) (kg)</h3>
-                        <input title="option1" placeholder="Please enter Minimum Insulation Rating" type="number" min="0" name="pd_minvolt" required><br>
+                            <div class = "input">
+                                <h3>Minimum Insulation Rating (V) (kg)</h3>
+                                <input title="option1" placeholder="Please enter Minimum Insulation Rating" type="number" min="0" name="pd_minvolt" required><br>
+                            </div>
 
-                        <h3>Conductor Material</h3>
-                        <input title="" placeholder="Please enter Conductor Material" type="text" name="pd_cable" required><br>
+                            <div class = "input">
+                                <h3>Conductor Material</h3>
+                                <input title="" placeholder="Please enter Conductor Material" type="text" name="pd_cable" required><br>
+                            </div>
 
-                        <h3>Fuel Cell - PDU Length (ft)</h3>
-                        <input title="option1" placeholder="Please enter Fuel Cell - PDU Length" type="number" min="0" name="pd_from_fc" required><br>
+                            <div class = "input">
+                                <h3>Fuel Cell - PDU Length (ft)</h3>
+                                <input title="option1" placeholder="Please enter Fuel Cell - PDU Length" type="number" min="0" name="pd_from_fc" required><br>
+                            </div>
 
-                        <h3>PDU - EPS Length (ft)</h3>
-                        <input title="option1" placeholder="Please enter PDU - EPS Length" type="number" min="0" name="pd_to_eps" required><br>
+                            <div class = "input">
+                                <h3>PDU - EPS Length (ft)</h3>
+                                <input title="option1" placeholder="Please enter PDU - EPS Length" type="number" min="0" name="pd_to_eps" required><br>
+                            </div>
 
-                        <h3>Contactor Resistance (mOhm)</h3>
-                        <input title="option1" placeholder="Please enter Contactor Resistance" type="number" min="0" name="pd_contres" required><br>
+                            <div class = "input">
+                                <h3>Contactor Resistance (mOhm)</h3>
+                                <input title="option1" placeholder="Please enter Contactor Resistance" type="number" min="0" name="pd_contres" required><br>
+                            </div>
 
                         <h3>Worst Case Efficiency</h3>
                         <input title="option1" placeholder="Please enter Worst Case Efficiency" type="number" min="0" max="100" name="pd_wce" required><br>
@@ -116,76 +154,110 @@
 
                         <h2 style="color:rgb(219, 166, 18)">Inverter</h2>
 
-                        <h3>Max Power (kW)</h3>
-                        <input title="option1" placeholder="Please enter Max Power (kW)" type="number" min="0" name="inve_pow" required><br>
+                            <div class = "input">
+                                <h3>Max Power (kW)</h3>
+                                <input title="option1" placeholder="Please enter Max Power (kW)" type="number" min="0" name="inve_pow" required><br>
+                            </div>
 
-                        <h3>Max Value HVDC (V)</h3>
-                        <input title="option1" placeholder="Please enter Max Value HCDC" type="number" min="0" name="inve_hvdc_max" required><br>
+                            <div class = "input">
+                                <h3>Max Value HVDC (V)</h3>
+                                <input title="option1" placeholder="Please enter Max Value HCDC" type="number" min="0" name="inve_hvdc_max" required><br>
+                            </div>
 
-                        <h3>Min HVDC (V)</h3>
-                        <input title="option1" placeholder="Please enter Min HVDC" type="number" min="0" name="inve_hvdc_min" required><br>
+                            <div class = "input">
+                                <h3>Min HVDC (V)</h3>
+                                <input title="option1" placeholder="Please enter Min HVDC" type="number" min="0" name="inve_hvdc_min" required><br>
+                            </div>
 
-                        <h3>Max Coolant Inlet (Celsius)</h3>
-                        <input title="option1" placeholder="Please enter Max Coolant Inlet Temp Range" type="number" min="0" name="inve_cool_max" required><br>
+                            <div class = "input">
+                                <h3>Max Coolant Inlet (Celsius)</h3>
+                                <input title="option1" placeholder="Please enter Max Coolant Inlet Temp Range" type="number" min="0" name="inve_cool_max" required><br>
+                            </div>
 
-                        <h3>Min Coolant Inlet (Celsius)</h3>
-                        <input title="option1" placeholder="Please enter Min Coolant Inlet Temp Range" type="number" min="0" name="inve_cool_min" required><br>
+                            <div class = "input">
+                                <h3>Min Coolant Inlet (Celsius)</h3>
+                                <input title="option1" placeholder="Please enter Min Coolant Inlet Temp Range" type="number" min="0" name="inve_cool_min" required><br>
+                            </div>
 
-                        <h3>Max HVDC Current (Amps)</h3>
-                        <input title="option1" placeholder="Please enter Max HVDC Current" type="number" min="0" name="inve_max_cur" required><br>
+                            <div class = "input">
+                                <h3>Max HVDC Current (Amps)</h3>
+                                <input title="option1" placeholder="Please enter Max HVDC Current" type="number" min="0" name="inve_max_cur" required><br>
+                            </div>
 
-                        <h3>Mass (kg)</h3>
-                        <input title="option1" placeholder="Please enter Mass" type="number" min="0" name="inve_m" required><br>
+                            <div class = "input">
+                                <h3>Mass (kg)</h3>
+                                <input title="option1" placeholder="Please enter Mass" type="number" min="0" name="inve_m" required><br>
+                            </div>
 
-                        <h3>Volume (L)</h3>
-                        <input title="option1" placeholder="Please enter Volume" type="number" min="0" name="inve_vol" required><br>
+                            <div class = "input">
+                                <h3>Volume (L)</h3>
+                                <input title="option1" placeholder="Please enter Volume" type="number" min="0" name="inve_vol" required><br>
+                            </div>
 
-                        <h3>Switching Frequency (kHz)</h3>
-                        <input title="option1" placeholder="Please enter Switching Frequency" type="number" min="0" name="inve_f" required><br>
+                            <div class = "input">
+                                <h3>Switching Frequency (kHz)</h3>
+                                <input title="option1" placeholder="Please enter Switching Frequency" type="number" min="0" name="inve_f" required><br>
+                            </div>
 
                         <h3>Worst Case Efficiency</h3>
                         <input title="option1" placeholder="Please enter Worst Case Efficiency" type="number" min="0" max="100" name="inve_wce" required><br>
                          
                         <h2 style="color:rgb(219, 166, 18)">Motor</h2>
 
-                        <h3>Number of Motors</h3>
-                        <input title="option1" placeholder="Please Enter Number of Motors" type="number" min="0" name="mo_n" required><br>
+                            <div class = "input">
+                                <h3>Number of Motors</h3>
+                                <input title="option1" placeholder="Please Enter Number of Motors" type="number" min="0" name="mo_n" required><br>
+                            </div>
 
-                        <h3>Max Power (kW)</h3>
-                        <input title="option1" placeholder="Please enter Max Power" type="number" min="0" name="mo_pow" required><br>
+                            <div class = "input">
+                                <h3>Max Power (kW)</h3>
+                                <input title="option1" placeholder="Please enter Max Power" type="number" min="0" name="mo_pow" required><br>
+                            </div>
 
-                        <h3>Max Nominal Speed (RPM)</h3>
-                        <input title="option1" placeholder="Please enter Max Nominal Speed" type="number" min="0" name="mo_sp" required><br>
+                            <div class = "input">
+                                <h3>Max Nominal Speed (RPM)</h3>
+                                <input title="option1" placeholder="Please enter Max Nominal Speed" type="number" min="0" name="mo_sp" required><br>
+                            </div>
 
-                        <h3>Max Torque (Nm)</h3>
-                        <input title="option1" placeholder="Please enter Max Torque" type="number" min="0" name="mo_tor" required><br>
+                            <div class = "input">
+                                <h3>Max Torque (Nm)</h3>
+                                <input title="option1" placeholder="Please enter Max Torque" type="number" min="0" name="mo_tor" required><br>
+                            </div>
 
-                        <h3>Mass (kg)</h3>
-                        <input title="option1" placeholder="Please enter Mass" type="number" min="0" name="mo_m" required><br>
+                            <div class = "input">
+                                <h3>Mass (kg)</h3>
+                                <input title="option1" placeholder="Please enter Mass" type="number" min="0" name="mo_m" required><br>
+                            </div>
 
-                        <h3>Volume (L)</h3>
-                        <input title="option1" placeholder="Please enter Volume" type="number" min="0" name="mo_vol" required><br>
+                            <div class = "input">
+                                <h3>Volume (L)</h3>
+                                <input title="option1" placeholder="Please enter Volume" type="number" min="0" name="mo_vol" required><br>
+                            </div>
 
-                        <h3>No. Phases</h3>
-                        <input title="option1" placeholder="Please enter No. Phases" type="number" min="0" name="mo_phases" required><br>
+                            <div class = "input">
+                                <h3>No. Phases</h3>
+                                <input title="option1" placeholder="Please enter No. Phases" type="number" min="0" name="mo_phases" required><br>
+                            </div>
 
-                        <h3>Max Phase Current (Arms)</h3>
-                        <input title="option1" placeholder="Please enter Max Phase Current (Arms)" type="number" min="0" name="mo_cur" required><br>
+                            <div class = "input">
+                                <h3>Max Phase Current (Arms)</h3>
+                                <input title="option1" placeholder="Please enter Max Phase Current (Arms)" type="number" min="0" name="mo_cur" required><br>
+                            </div>
 
-                        <h3>Fundamental Frequency (kHz)</h3>
-                        <input title="option1" placeholder="Please enter Fundamental Frequency" type="number" min="0" name="mo_f" required><br>
+                            <div class = "input">
+                                <h3>Fundamental Frequency (kHz)</h3>
+                                <input title="option1" placeholder="Please enter Fundamental Frequency" type="number" min="0" name="mo_f" required><br>
+                            </div>
 
-                        <h3>Worst Case Efficiency</h3>
-                        <input title="option1" placeholder="Please enter Worst Case Efficiency" type="number" min="0" max="100" name="mo_wce" required><br>
+                            <div class = "input">
+                                <h3>Worst Case Efficiency</h3>
+                                <input title="option1" placeholder="Please enter Worst Case Efficiency" type="number" min="0" max="100" name="mo_wce" required><br>
+                            </div>
 
                         <button type="submit">Submit</button>  
 
                     </div>
                 </form>
-
-
-
-
               <!-- <div class="col">
 
 
