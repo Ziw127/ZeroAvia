@@ -39,7 +39,7 @@
                 <form action="{{url_for('success')}}" method="POST">
                     <div class="col">
 
-                        <h2>Fuel Tank</h2>
+                        <h2 style="color:rgb(219, 166, 18)">Fuel Tank</h2>
 
                         <h3>Weight (kg)</h3>
                         <input title="option1" placeholder="Please enter Mass" type="number" min="0" name="ft_w" required><br>
@@ -63,7 +63,7 @@
                         <input title="option1" placeholder="Please enter Worst Case Efficiency" type="number" min="0" name="ft_wce" required><br>
                         
 
-                        <h2>Fuel Cell</h2>
+                        <h2 style="color:rgb(219, 166, 18)">Fuel Cell</h2>
 
                         <h3>Power Rating (kWh)</h3>
                         <input title="option1" placeholder="Please enter Power Rating" type="number" min="0" name="fc_pow" required><br>
@@ -85,11 +85,9 @@
 
                         <h3>Worst Case Efficiency (%)</h3>
                         <input title="option1" placeholder="Please enter Worst Case Efficiency" type="number" min="0" max="100" name="fc_wce" required><br>
-
-                        <button type="submit">Submit</button>
                         
-                        <!--
-                        <h2>Power Distro. Unit</h2>
+                         
+                        <h2 style="color:rgb(219, 166, 18)">Power Distro. Unit</h2>
 
                         <h3>HVDC Cable Conductor Diameter (AWG)</h3>
                         <input title="option1" placeholder="Please enter HVDC Cable Conductor Diameter" type="number" min="0" name="hvdc_diam" required><br>
@@ -111,10 +109,12 @@
 
                         <h3>Worst Case Efficiency</h3>
                         <input title="option1" placeholder="Please enter Worst Case Efficiency" type="number" min="0" max="100" name="pd_wce" required><br>
+                         
                     </div>
+                     
                     <div class="col">
 
-                        <h2>Inverter</h2>
+                        <h2 style="color:rgb(219, 166, 18)">Inverter</h2>
 
                         <h3>Max Power (kW)</h3>
                         <input title="option1" placeholder="Please enter Max Power (kW)" type="number" min="0" name="inve_pow" required><br>
@@ -145,8 +145,8 @@
 
                         <h3>Worst Case Efficiency</h3>
                         <input title="option1" placeholder="Please enter Worst Case Efficiency" type="number" min="0" max="100" name="inve_wce" required><br>
-
-                        <h2>Motor</h2>
+                         
+                        <h2 style="color:rgb(219, 166, 18)">Motor</h2>
 
                         <h3>Number of Motors</h3>
                         <input title="option1" placeholder="Please Enter Number of Motors" type="number" min="0" name="mo_n" required><br>
@@ -178,7 +178,7 @@
                         <h3>Worst Case Efficiency</h3>
                         <input title="option1" placeholder="Please enter Worst Case Efficiency" type="number" min="0" max="100" name="mo_wce" required><br>
 
-                        <button type="submit">Submit</button> -->
+                        <button type="submit">Submit</button>  
 
                     </div>
                 </form>
