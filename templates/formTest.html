@@ -36,7 +36,7 @@
         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
           <div class="accordion-body">
             <div class = "container">
-                <form action="{{url_for('success')}}" method="POST"></form>
+                <form action="{{url_for('success')}}" method="POST">
                     <div class = "row">
                         <div class="col">
 
@@ -54,7 +54,7 @@
 
                             <div class = "input">
                                 <h3>Specific Energy (kWh/kg)</h3>
-                                <input title="" placeholder="Please enter Specific Energy" type="number" min="0" name="spec_e " required><br>
+                                <input title="" placeholder="Please enter Specific Energy" type="number" min="0" name="spec_e" required><br>
                             </div>
 
                             <div class = "input">
@@ -111,8 +111,8 @@
 
                         <h3>Worst Case Efficiency (%)</h3>
                         <input title="option1" placeholder="Please enter Worst Case Efficiency" type="number" min="0" max="100" name="fc_wce" required><br>
-                        
-                         
+
+
                         <h2 style="color:rgb(219, 166, 18)">Power Distro. Unit</h2>
 
                             <div class = "input">
@@ -147,9 +147,9 @@
 
                         <h3>Worst Case Efficiency</h3>
                         <input title="option1" placeholder="Please enter Worst Case Efficiency" type="number" min="0" max="100" name="pd_wce" required><br>
-                         
+
                     </div>
-                     
+
                     <div class="col">
 
                         <h2 style="color:rgb(219, 166, 18)">Inverter</h2>
@@ -201,7 +201,7 @@
 
                         <h3>Worst Case Efficiency</h3>
                         <input title="option1" placeholder="Please enter Worst Case Efficiency" type="number" min="0" max="100" name="inve_wce" required><br>
-                         
+
                         <h2 style="color:rgb(219, 166, 18)">Motor</h2>
 
                             <div class = "input">
@@ -254,235 +254,10 @@
                                 <input title="option1" placeholder="Please enter Worst Case Efficiency" type="number" min="0" max="100" name="mo_wce" required><br>
                             </div>
 
-                        <button type="submit">Submit</button>  
+                        <button type="submit">Submit</button>
 
                     </div>
                 </form>
-              <!-- <div class="col">
-
-
-                <h2>Fuel Tank</h2>
-                <h3>Fuel Type</h3>
-
-                    <form action="success.html" method="POST">
-                        <input title="" placeholder="Please enter Fuel Type" type="text" name="email_name" required><br>
-                    </form>
-                    <h3>Weight (kg)</h3>
-
-                    <form action="success.html" method="POST">
-                        <input title="option1" placeholder="Please enter Weight" type="number" min="50" max="300" name="height_name" required><br>
-
-                    </form>
-                    <h3>Volume (L)</h3>
-
-                    <form action="success.html" method="POST">
-                        <input title="option1" placeholder="Please enter Volume" type="number" min="50" max="300" name="height_name" required><br>
-                    </form>
-                    <h3>Specific Energy</h3>
-
-                    <form action="success.html" method="POST">
-                        <input title="" placeholder="Please enter Specific Energy" type="text" name="email_name" required><br>
-                    </form>
-                    <h3>Minumum Fuel Weight (kg)</h3>
-
-                    <form action="success.html" method="POST">
-                        <input title="option1" placeholder="Please enter Minumum Fuel Weight" type="number" min="50" max="300" name="height_name" required><br>
-
-                    </form>
-                    <h3>Maximum Fuel Weight (kg)</h3>
-
-                    <form action="success.html" method="POST">
-                        <input title="option1" placeholder="Please enter Maximum Fuel Weight" type="number" min="50" max="300" name="height_name" required><br>
-                    </form>
-                    <h3>Worst Case Efficiency</h3>
-
-                    <form action="success.html" method="POST">
-                        <input title="option1" placeholder="Please enter Worst Case Efficiency" type="number" min="50" max="300" name="height_name" required><br>
-                    </form>
-
-                    <h2>Fuel Cell</h2>
-                    <h3>Power Rating</h3>
-
-                    <form action="success.html" method="POST">
-                        <input title="" placeholder="Please enter Power Rating" type="text" name="email_name" required><br>
-                        <input title="option1" placeholder="option1" type="number" min="50" max="300" name="height_name" required><br>
-                    </form>
-                    <h3>Weight (kg)</h3>
-
-                    <form action="success.html" method="POST">
-                        <input title="option1" placeholder="Please enter Weight" type="number" min="50" max="300" name="height_name" required><br>
-
-                    </form>
-                    <h3>Volume (L)</h3>
-
-                    <form action="success.html" method="POST">
-                        <input title="option1" placeholder="Please enter Volume" type="number" min="50" max="300" name="height_name" required><br>
-                    </form>
-                    <h3>Rated Voltage (V)</h3>
-
-                    <form action="success.html" method="POST">
-                        <input title="option1" placeholder="Please enter Rated Voltage" type="number" min="50" max="300" name="height_name" required><br>
-                    </form>
-                    <h3>Heat Output</h3>
-
-                    <form action="success.html" method="POST">
-                        <input title="" placeholder="Please enter Heat Output" type="text" name="email_name" required><br>
-                        <input title="option1" placeholder="Please enter Heat Output" type="number" min="50" max="300" name="height_name" required><br>
-
-                    </form>
-                    <h3>Fuel Consumption (m^3/h)</h3>
-
-                    <form action="success.html" method="POST">
-                        <input title="option1" placeholder="Please enter Fuel Consumption" type="number" min="50" max="300" name="height_name" required><br>
-                    </form>
-                    <h3>Worst Case Efficiency</h3>
-
-                    <form action="success.html" method="POST">
-                        <input title="option1" placeholder="Please enter Worst Case Efficiency" type="number" min="50" max="300" name="height_name" required><br>
-                    </form>
-
-                    <h2>Power Distro. Unit</h2>
-                    <h3>HVDC Cable Conductor Diameter (AWG)</h3>
-
-                    <form action="success.html" method="POST">
-                        <input title="option1" placeholder="Please enter HVDC Cable Conductor Diameter" type="number" min="50" max="300" name="height_name" required><br>
-                    </form>
-                    <h3>Minimum Insulation Rating (V) (kg)</h3>
-
-                    <form action="success.html" method="POST">
-                        <input title="option1" placeholder="Please enter Minimum Insulation Rating" type="number" min="50" max="300" name="height_name" required><br>
-
-                    </form>
-                    <h3>Conductor Material</h3>
-
-                    <form action="success.html" method="POST">
-                        <input title="" placeholder="Please enter Conductor Material" type="text" name="email_name" required><br>
-                    </form>
-                    <h3>Fuel Cell - PDU Length (ft)</h3>
-
-                    <form action="success.html" method="POST">
-                        <input title="option1" placeholder="Please enter Fuel Cell - PDU Length" type="number" min="50" max="300" name="height_name" required><br>
-                    </form>
-                    <h3>PDU - EPS Length (ft)</h3>
-
-                    <form action="success.html" method="POST">
-                        <input title="option1" placeholder="Please enter PDU - EPS Length" type="number" min="50" max="300" name="height_name" required><br>
-
-                    </form>
-                    <h3>Contactor Resistance (mOhm)</h3>
-
-                    <form action="success.html" method="POST">
-                        <input title="option1" placeholder="Please enter Contactor Resistance" type="number" min="50" max="300" name="height_name" required><br>
-                    </form>
-                    <h3>Worst Case Efficiency</h3>
-
-                    <form action="success.html" method="POST">
-                        <input title="option1" placeholder="Please enter Worst Case Efficiency" type="number" min="50" max="300" name="height_name" required><br>
-                    </form>
-                </div>
-                <div class="col">
-
-                    <h2>Inverter</h2>
-                    <h3>Max Power (kW)</h3>
-
-                    <form action="success.html" method="POST">
-                        <input title="option1" placeholder="Please enter Max Power (kW)" type="number" min="50" max="300" name="height_name" required><br>
-                    </form>
-                    <h3>Max Value HVDC (V)</h3>
-
-                    <form action="success.html" method="POST">
-                        <input title="option1" placeholder="Please enter Max Value HCDC" type="number" min="50" max="300" name="height_name" required><br>
-
-                    </form>
-                    <h3>Min HVDC (V)</h3>
-
-                    <form action="success.html" method="POST">
-                        <input title="option1" placeholder="Please enter Min HVDC" type="number" min="50" max="300" name="height_name" required><br>
-                    </form>
-                    <h3>Max Coolant Inlet Temp Range (Celsius)</h3>
-
-                    <form action="success.html" method="POST">
-                        <input title="option1" placeholder="Please enter Max Coolant Inlet Temp Range" type="number" min="50" max="300" name="height_name" required><br>
-                    </form>
-                    <h3>Max HVDC Current (Amps)</h3>
-
-                    <form action="success.html" method="POST">
-                        <input title="option1" placeholder="Please enter Max HVDC Current" type="number" min="50" max="300" name="height_name" required><br>
-
-                    </form>
-                    <h3>Mass (kg)</h3>
-
-                    <form action="success.html" method="POST">
-                        <input title="option1" placeholder="Please enter Mass" type="number" min="50" max="300" name="height_name" required><br>
-                    </form>
-                    <h3>Volume (L)</h3>
-
-                    <form action="success.html" method="POST">
-                        <input title="option1" placeholder="Please enter Volume" type="number" min="50" max="300" name="height_name" required><br>
-                    </form>
-                    <h3>Switching Frequency (kHz)</h3>
-
-                    <form action="success.html" method="POST">
-                        <input title="option1" placeholder="Please enter Switching Frequency" type="number" min="50" max="300" name="height_name" required><br>
-                    </form>
-                    <h3>Worst Case Efficiency</h3>
-
-                    <form action="success.html" method="POST">
-                        <input title="option1" placeholder="Please enter Worst Case Efficiency" type="number" min="50" max="300" name="height_name" required><br>
-                    </form>
-
-                    <h2>Motor</h2>
-                    <h3>Max Power (kW)</h3>
-
-                    <form action="success.html" method="POST">
-                        <input title="option1" placeholder="Please enter Max Power" type="number" min="50" max="300" name="height_name" required><br>
-                    </form>
-                    <h3>Max Nominal Speed (RPM)</h3>
-
-                    <form action="success.html" method="POST">
-                        <input title="option1" placeholder="Please enter Max Nominal Speed" type="number" min="50" max="300" name="height_name" required><br>
-
-                    </form>
-                    <h3>Max Torque (Nm)</h3>
-
-                    <form action="success.html" method="POST">
-                        <input title="option1" placeholder="Please enter Max Torque" type="number" min="50" max="300" name="height_name" required><br>
-
-                    </form>
-                    <h3>Weight (kg)</h3>
-
-                    <form action="success.html" method="POST">
-                        <input title="option1" placeholder="Please enter Weight" type="number" min="50" max="300" name="height_name" required><br>
-
-                    </form>
-                    <h3>Volume (L)</h3>
-
-                    <form action="success.html" method="POST">
-                        <input title="option1" placeholder="Please enter Volume" type="number" min="50" max="300" name="height_name" required><br>
-                    </form>
-                    <h3>No. Phases</h3>
-
-                    <form action="success.html" method="POST">
-                        <input title="option1" placeholder="Please enter No. Phases" type="number" min="50" max="300" name="height_name" required><br>
-                    </form>
-                    <h3>Max Phase Current (Arms)</h3>
-
-                    <form action="success.html" method="POST">
-                        <input title="option1" placeholder="Please enter Max Phase Current (Arms)" type="number" min="50" max="300" name="height_name" required><br>
-
-                    </form>
-                    <h3>Fundamental Frequency (kHz)</h3>
-
-                    <form action="success.html" method="POST">
-                        <input title="option1" placeholder="Please enter Fundamental Frequency" type="number" min="50" max="300" name="height_name" required><br>
-                    </form>
-                    <h3>Worst Case Efficiency</h3>
-
-                    <form action="success.html" method="POST">
-                        <input title="option1" placeholder="Please enter Worst Case Efficiency" type="number" min="50" max="300" name="height_name" required><br>
-                    </form>
-
-                  </div> -->
               </div>
 
 
