@@ -2,127 +2,130 @@
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 
+
 app = Flask(__name__)
 # make app know where to connect to the database
 app.config['SQLALCHEMY_DATABASE_URI']='postgresql://postgres:postgre123@localhost/ZeroAvia'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app) # create a SQLAlchemy object for the Flask Application
+
 
 class FuelTank(db.Model):
     __tablename__ = 'fueltank'
     id = db.Column(db.Integer, primary_key=True)
     weight = db.Column(db.Float, nullable=False)
     volume = db.Column(db.Float)
-    speEnergy = db.Column(db.Float)
-    enDensity = db.Column(db.Float)
-    minFuelWeight = db.Column(db.Float)
-    maxFuelWeight = db.Column(db.Float)
-    tankEfficiency = db.Column(db.Float)
+    energy = db.Column(db.Float)
+    density = db.Column(db.Float)
+    minfuelweight = db.Column(db.Float)
+    maxfuelweight = db.Column(db.Float)
+    efficiency = db.Column(db.Float)
 
 
     def __init__(self, weight, volume, speEnergy, enDensity, minFuelWeigh,maxFuelWeight,tankEfficiency):
         self.weight = weight
         self.volume = volume
-        self.speEnergy = speEnergy
-        self.enDensity = enDensity
-        self.minFuelWeight = minFuelWeigh
-        self.maxFuelWeight = maxFuelWeight
-        self.tankEfficiency = tankEfficiency
+        self.energy = speEnergy
+        self.density = enDensity
+        self.minfuelweight = minFuelWeigh
+        self.maxfuelweight = maxFuelWeight
+        self.efficiency = tankEfficiency
 
 class FuelCell(db.Model):
     __tablename__ = 'fuelcell'
     id = db.Column(db.Integer, primary_key=True)
-    PowerRating = db.Column(db.Float, nullable=False)
+    powerrating = db.Column(db.Float, nullable=False)
     weight = db.Column(db.Float)
     volume = db.Column(db.Float)
-    ratedVoltage = db.Column(db.Float)
-    heatLeakage = db.Column(db.Float)
+    ratedvoltage = db.Column(db.Float)
+    heatleakage = db.Column(db.Float)
     consumption = db.Column(db.Float)
-    cellEfficiency = db.Column(db.Float)
+    efficiency = db.Column(db.Float)
 
 
     def __init__(self, PowerRating, weight, volume, ratedVoltage, heatLeakage,consumption,cellEfficiency):
-        self.PowerRating = PowerRating
+        self.powerrating = PowerRating
         self.weight = weight
         self.volume = volume
-        self.ratedVoltage = ratedVoltage
-        self.heatLeakage = heatLeakage
+        self.ratedvoltage = ratedVoltage
+        self.heatleakage = heatLeakage
         self.consumption = consumption
-        self.cellEfficiency =cellEfficiency
+        self.efficiency =cellEfficiency
 
 class PowerDistro(db.Model):
     __tablename__ = 'power'
     id = db.Column(db.Integer, primary_key=True)
-    HVDC = db.Column(db.Float, nullable=False)
-    minInRating = db.Column(db.Float)
+    hvds = db.Column(db.Float, nullable=False)
+    minrating = db.Column(db.Float)
     conductor = db.Column(db.Float)
-    fuelcellToPDU = db.Column(db.Float)
-    PDUtoEPS = db.Column(db.Float)
-    conResistance = db.Column(db.Float)
-    powerEfficiency = db.Column(db.Float)
+    pdu = db.Column(db.Float)
+    eps = db.Column(db.Float)
+    resistance = db.Column(db.Float)
+    efficiency = db.Column(db.Float)
 
 
     def __init__(self, HVDC, minInRating, conductor, fuelcellToPDU, PDUtoEPS,conResistance,powerEfficiency):
-        self.HVDC = HVDC
-        self.minInRating = minInRating
+        self.hvds = HVDC
+        self.minrating = minInRating
         self.conductor = conductor
-        self.fuelcellToPDU = fuelcellToPDU
-        self.PDUtoEPS = PDUtoEPS
-        self.conResistance = conResistance
-        self.powerEfficiency = powerEfficiency
+        self.pdu = fuelcellToPDU
+        self.eps = PDUtoEPS
+        self.resistance = conResistance
+        self.efficiency = powerEfficiency
 
 class Inverter(db.Model):
     __tablename__ = 'inverter'
     id = db.Column(db.Integer, primary_key=True)
-    maxPower = db.Column(db.Float, nullable=False)
-    maxHVDC = db.Column(db.Float)
-    minHVDC = db.Column(db.Float)
-    maxcoolInlet = db.Column(db.Float)
-    mincoolInlet = db.Column(db.Float)
-    maxHDVCcur = db.Column(db.Float)
+    maxpower = db.Column(db.Float, nullable=False)
+    maxhvdc = db.Column(db.Float)
+    minhvdc = db.Column(db.Float)
+    maxcoolinlet = db.Column(db.Float)
+    mincoolinlet = db.Column(db.Float)
+    maxcur = db.Column(db.Float)
     mass = db.Column(db.Float)
     volume = db.Column(db.Float)
     swfreqency = db.Column(db.Float)
-    invEfficiency = db.Column(db.Float)
+    efficiency = db.Column(db.Float)
 
 
     def __init__(self, maxPower, maxHVDC, minHVDC, maxcoolInlet, mincoolInlet,maxHDVCcur,mass,volume,swfreqency,invEfficiency):
-        self.maxPower =maxPower
-        self.maxHVDC = maxHVDC
-        self.minHVDC = minHVDC
-        self.maxcoolInlet = maxcoolInlet
-        self.mincoolInlet = mincoolInlet
-        self.maxHDVCcur = maxHDVCcur
+        self.maxpower =maxPower
+        self.maxhvdc = maxHVDC
+        self.minhvdc = minHVDC
+        self.maxcoolinlet = maxcoolInlet
+        self.mincoolinlet = mincoolInlet
+        self.maxcur = maxHDVCcur
         self.mass = mass
         self.volume = volume
         self.swfreqency = swfreqency
-        self.invEfficiency = invEfficiency
+        self.efficiency = invEfficiency
 
 class Motor(db.Model):
     __tablename__ = 'motor'
     id = db.Column(db.Integer, primary_key=True)
-    numMotors = db.Column(db.Integer, nullable=False)
-    maxPower = db.Column(db.Float)
-    maxSpeed = db.Column(db.Float)
-    maxTorque = db.Column(db.Float)
+    num = db.Column(db.Integer, nullable=False)
+    maxpower = db.Column(db.Float)
+    maxspeed = db.Column(db.Float)
+    maxtorque = db.Column(db.Float)
     weight = db.Column(db.Float)
     volume = db.Column(db.Float)
-    noPhases = db.Column(db.Integer)
-    maxPhaseCurrent = db.Column(db.Float)
+    nophases = db.Column(db.Integer)
+    maxphase = db.Column(db.Float)
     funfreqency = db.Column(db.Float)
-    motorEfficiency = db.Column(db.Float)
+    efficiency = db.Column(db.Float)
 
 
     def __init__(self, numMotors, maxPower, maxSpeed, maxTorque, weight,volume,noPhases,maxPhaseCurrent,funfreqency,motorEfficiency):
-        self.numMotors = numMotors
-        self.maxPower = maxPower
-        self.maxSpeed = maxSpeed
-        self.maxTorque = maxTorque
+        self.num = numMotors
+        self.maxpower = maxPower
+        self.maxspeed = maxSpeed
+        self.maxtorque = maxTorque
         self.weight = weight
         self.volume = volume
         self.noPhases = noPhases
-        self.maxPhaseCurrent = maxPhaseCurrent
+        self.maxphase = maxPhaseCurrent
         self.funfreqency = funfreqency
-        self.motorEfficiency = motorEfficiency
+        self.efficiency = motorEfficiency
 
 @app.route("/")
 def index():
@@ -133,7 +136,7 @@ def index():
 def success():
     if request.method == 'POST':
         # FuelTank
-        tweight = request.form["ft_w"]
+        tweight = request.form["ft_m"]
         tvolume = request.form["ft_vol"]
         speEnergy = request.form["spec_e"]
         enDensity = request.form["e_density"]
@@ -212,7 +215,7 @@ def success():
         #     db.session.add(data)
         #     db.session.commit()
         #     return render_template("success.html")
-    
+        # print(db.session.query(FuelCell))
         return render_template("success.html")
     
 if __name__ == '__main__':

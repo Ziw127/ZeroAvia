@@ -1,6 +1,7 @@
 superuser: postgres
 Password:postgre123
 Port: 5432
+database:ZeroAvia
 
 ------------------------install information on Sophie's computer-------------------------
 Installation Directory: D:\PostgreSQL\13
