@@ -16,9 +16,12 @@ pgAdmin4 Installation Directory: D:\PostgreSQL\13\pgAdmin 4
 Stack Builder Installation Directory: D:\PostgreSQL\13
 Installation Log: C:\Users\taoziwei\AppData\Local\Temp\install-postgresql.log
 
+
 library install
 1. pip install psycopg2
+   The PostgreSQL can be integrated with Python using psycopg2 module
 2. pip install Flask-SQLAlchemy
+
 
 Terminal command:
 >python
