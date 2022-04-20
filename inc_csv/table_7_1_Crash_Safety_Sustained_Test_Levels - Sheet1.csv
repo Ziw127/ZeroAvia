@@ -1,0 +1,11 @@
+aircraft_type,test_type,direction_up_gforce,direction_down_gforce,direction_forward_gforce,direction_aft_gforce,direction_side_gforce
+helicopters,fixed_orientation,4,20,16,N/A,8
+helicopters,random_orientation,20,20,20,20,20
+fixed_wing_transport,fixed_orientation,3,6,9,1.5,4
+fixed_wing_transport,random_orientation,9,9,9,9,9
+fixed_wing_non_transport,fixed_orientation,3,N/A,18,N/A,4.5
+fixed_wing_non_transport,random_orientation,18,18,18,18,18
+all_fixed_wing,fixed_orientation,3,6,18,1.5,4.5
+all_fixed_wing,random_orientation,18,18,18,18,18
+helicopter_and_all_fixed_wing,fixed_orientation,4,20,18,1.5,8
+helicopter_and_all_fixed_wing,random_orientation,20,20,20,20,20

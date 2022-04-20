@@ -1,0 +1,12 @@
+enviromental_tests,A1,A2,A3,A4,B1,B2,B3,B4,C1,C2,C3,C4,D1,D2,D3,E1,E2,F1,F2,F3
+operating_low_temp,-15,-15,-15,15,-20,-20,-45,Note 4,-20,-55,-55,Note 4,-20,-55,-55,-55,-55,-20,-55,-55
+operating_high_temp,55,70,70,Note 3,55,70,Note 3,Note 4,55,70,Note 3,Note 4,55,70,Note 3,Note 3,note 3,55,70,Note 3
+short_time_operating_low_temp,-40,-40,-40,Note 3,-40,-45,Note 3,Note 4,-40,-55,Note 3,Note 4,-40,-55,-55,-55,-55,-40,-55,-55
+short_time_operating_high_temp,70,70,85,Note 3,70,70,Note 3,Note 4,70,70,Note 3,Note 4,70,70,Note 3,Note 3,Note 3,70,70,Note 3
+loss_of_cooling_test,30,40,45,Note 3,30,40,Note 3,Note 3,30,40,Note 3,Note 4,30,40,Note 3,Note 3,Note 3,30,40,Note 3
+ground_survival_low_temp,-55,-55,-55,Note 3,55,-55,Note 3,-55,-55,-55,Note 3,-55,-55,-55,-55,-55,-55,-55,-55,-55
+ground_survival_high_temp,85,85,85,Note 3,85,85,Note 3,85,85,85,Note 3,85,85,85,Note 3,85,Note 3,85,85,Note 3
+altitude_thousands_of_feet,15,15,15,15,25,25,25,25,35,35,35,35,50,50,50,70,70,55,55,55
+altitude_thousands_of_meters,4.6,4.6,4.6,4.6,7.6,7.6,7.6,7.6,10.7,10.7,10.7,10.7,15.2,15.2,15.2,21.3,21.3,16.8,16.8,16.8
+decompression_test,Note 1 and 4,Note 1 and 4,Note 1 and 4,Note 1 and 4,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A
+overpressure_test,Note 2,Note 2,Note 2,Note 2,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A

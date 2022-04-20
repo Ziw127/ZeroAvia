@@ -1,0 +1,5 @@
+test_impluse,peak_value_g,nominal_duration_ms
+standard_operational,6,11
+low_frequency_operatinoal,6,20
+crash_safety,20,11
+low_frequency_crash_safety,20,20
