@@ -18,12 +18,14 @@ try:
 
     # execute an SQL statement
     # fetch data from table fuelcell
-    cur.execute("SELECT id, powerrating, weight, volume, ratedvoltage, heatleakage, consumption,efficiency FROM fuelcell")
+    cur.execute("SELECT * FROM temperature")
     rows = cur.fetchall()
     for row in rows:
         print(row)
+    # row1 dat1, data2, data3
+    # data = [id, powerrating, weight]
     
-    print("Select from fuelcell Successfully!")
+    print("Select from temperature Successfully!")
 
     # fetch data from table fuelcell
     # cur.execute("SELECT * FROM fueltank")

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero Avia Data</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="{{url_for('static',filename='test.css')}}">
+    <script src="{{url_for('static',filename='chosen.js')}}"></script> -->
+    <link rel="stylesheet" href="../static/test.css">
+    <script src="../static/chosen.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    </head>
+<body>
+
+    <div class="container text-center">
+        <div class="row col1">
+<!--            selection/input-->
+          <div class="col-sm-3">
+            <div class="card">
+<!--                section selection-->
+              <select class="form-select" name = "section" id = selectedSection  onchange=chooseSection()> <!--onchange="submit()"-->
+                  <option value = 'none' selected disabled>Select Section</option>
+                  <option value="4">Section 4: Temperature and Altitude</option>
+                  <option value="5">Section 5: Temperature Vatiation</option>
+                  <option value="6">Section 6: Humidity</option>
+                  <option value = "7">Section 7.0 – Operational Shocks and Crash Safety</option>
+                  <option value = "8">Section 8.0 – Vibration</option>
+                  <option value = "9">Section 9.0 – Explosive Atmosphere</option>
+                  <option value = "10">Section 10.0 – Waterproofness</option>
+                  <option value = "11">Section 11.0 – Fluids Susceptibility</option>
+                  <option value = "12">Section 12.0 – Sand and Dust</option>
+                  <option value = "13">Section 13.0 – Fungus Resistance</option>
+                  <option value = "14">Section 14.0 – Salt Fog</option>
+                  <option value = "15">Section 15.0 – Magnetic Effect</option>
+                  <option value = "16">Section 16.0 – Power Input</option>
+                  <option value = "17">Section 17.0 – Voltage Spike</option>
+                  <option value = "18">Section 18.0 – Audio Frequency Conducted Susceptibility – Power Inputs</option>
+                  <option value = "18">Section 19.0 – Induced Signal Susceptibility</option>
+                  <option value = "20">Section 20.0 – Radio Frequency Susceptibility (Radiated and Conducted)</option>
+                  <option value = "21">Section 21.0 – Emission of Radio Frequency Energy</option>
+                  <option value = "22">Section 22.0 – Lightning Induced Transient Susceptibility</option>
+                  <option value = "23">Section 23.0 – Lightning Direct Effects</option>
+                  <option value = "24">Section 24.0 – Icing</option>
+                  <option value = "25">Section 25.0 – Electrostatic Discharge</option>
+                  <option value = "26">Section 26.0 – Fire and Flammability</option>
+              </select>
+<!--                category selection-->
+              <select class="form-select" id = selectedCategory name="category" onchange=chooseCategory()>
+                  <option value = 'none' selected disabled>Select Category</option>
+                  <option value="A1">Category A1</option>
+                  <option value="A2">Category A2</option>
+                  <option value="A3">Category A3</option>
+                  <option value="A4">Category A4</option>
+                  <option value="B1">Category B1</option>
+                  <option value="B2">Category B2</option>
+                  <option value="B3">Category B3</option>
+                  <option value="B4">Category B4</option>
+                  <option value="C1">Category C1</option>
+                  <option value="C2">Category C2</option>
+                  <option value="C3">Category C3</option>
+                  <option value="C4">Category C4</option>
+                  <option value="D1">Category D1</option>
+                  <option value="D2">Category D2</option>
+                  <option value="D3">Category D3</option>
+                  <option value="E1">Category E1</option>
+                  <option value="E2">Category E2</option>
+                  <option value="F1">Category F1</option>
+                  <option value="F2">Category F2</option>
+                  <option value="F3">Category F3</option>
+              </select>
+<!--                test selection-->
+                <select class="form-select" id = selectedTest name="test" onchange=chooseTest()>
+                  <option value = 'none' selected disabled>Select Test</option>
+                  <option value="Ground Survival Low Temperature Test and Short-Time Operating Low Temperature Test">Ground Survival Low Temperature Test and Short-Time Operating Low Temperature Test</option>
+                  <option value="Operating Low Temperature Test">Operating Low Temperature Test</option>
+                  <option value="Ground Survival High Temperature Test and Short-Time Operating High Temperature Test">Ground Survival High Temperature Test and Short-Time Operating High Temperature Test</option>
+                  <option value="Operating High Temperature Test">Operating High Temperature Test</option>
+                  <option value="In-Flight Loss of Cooling Test">In-Flight Loss of Cooling Test</option>
+                  <option value="Altitude Test">Altitude Test</option>
+                  <option value="Decompression Test">Decompression Test</option>
+                  <option value="Overpressure Test">Overpressure Test</option>
+              </select>
+<!--                inputs-->
+              <input type="text" class="form-control" placeholder="Input">
+              <input type="text" class="form-control" placeholder="Input">
+              <input type="text" class="form-control" placeholder="Input">
+              <input type="text" class="form-control" placeholder="Input">
+              <input type="text" class="form-control" placeholder="Input">
+            </div>
+          </div>
+<!--            results-->
+          <div class="col-sm-9">
+<!--          graph row-->
+            <div class="row num1">
+<!--                graph-->
+              <div class="col-sm-12">
+                <div class="card">
+                    <div class="panel panel-default text-left">
+                    <div class="panel-body">
+                        <img src="https://www.researchgate.net/profile/Djamal-Didane/publication/346754036/figure/fig4/AS:966645682024449@1607477698463/Graph-of-power-output-against-train-speed.png" class="img-fluid" alt="...">
+                    </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+<!--              guideline and text result row-->
+            <div class="row num2">
+<!--                guideline-->
+              <div class="col-sm-5">
+                <div class="card">
+                 <p>Guideline</p>
+                </div>
+              </div>
+               <!-- Results -->
+              <div class="col-sm-7">
+                <div class="card">
+                  <h2>Result</h2>
+                  <p>placeholder</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+</body>
+</html>

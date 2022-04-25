@@ -4,13 +4,72 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../static/main.css">
+    <title>Test Result</title>
+    <style>
+        .flex-container {
+            display: -webkit-flex;
+            display: flex;
+            background-color: rgb(88, 30, 139);
+            justify-content: center;
+        }
+ 
+        .flex-item {
+            background-color: whitesmoke;
+            width: 1000px;
+            height: 1000px;
+            margin: 20px;
+            border:rgb(255, 0, 212), 20px, solid;
+        }
+        .button {
+            background-color: #ffb300; /* Green */
+            color: white;
+            text-align: center;
+            font-size: 50px;
+            border: #4CAF50 solid;
+            cursor: pointer;
+        }
+        .button:hover {background-color: #3e8e41}
+
+        .button:active {
+        background-color: #3e8e41;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+        }
+        h1 {
+            text-align: center;
+        }
+        h2 {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <p>Thank you for your submission!
-        </p> 
+    <h1 style="font-size: 60px">Test Result<br>Section 4.0 Temperature and Altitude</h1>
+    <div class="flex-container">
+        <div class="flex-item">
+            <h1>Test Result</h1> 
+            <h2>Category A1: xxxxxxxxxxx</h2>
+            <h2>Input 1: xxxxxxxxxxx</h2>
+            <h2>Input 2: xxxxxxxxxxx</h2>
+            <h2>Input 3: xxxxxxxxxxx</h2>
+            <h2>Input 4: xxxxxxxxxxx</h2>
+            <h2>Input 5: xxxxxxxxxxx</h2>
+            <h2>Output 1: xxxxxxxxxxx</h2>
+            <h2>Output 2: xxxxxxxxxxx</h2>
+            <h2>Output 3: xxxxxxxxxxx</h2>
+            <h2>Output 4: xxxxxxxxxxx</h2>
+            <h2>Output 5: xxxxxxxxxxx</h2>
+            <h2>Output 6: xxxxxxxxxxx</h2>
+            <h2>Result: Pass/False</h2>
+        </div>
+        <div class="flex-item">
+            <h1>Graph Analysis</h1> 
+            <img src="https://media.istockphoto.com/photos/red-arrow-moving-up-over-graph-paper-picture-id1250237213?b=1&k=20&m=1250237213&s=170667a&w=0&h=pPBABkGtRYpYEl-pePA2AyAeRCBCoOz_1470VPPuU5s=" alt="">
+        </div>
     </div>
+    <div align = "center" style="position: relative; top:10px">
+        <button class = "button">Upload</button>
+    </div>
+     
 </body>
 </html>
