@@ -1,0 +1,23 @@
+.col1, .col-sm-7 {
+    height: 100%;
+}
+
+.num1 {
+    height: 75%;
+}
+
+.num2 {
+    height: 25%;
+}
+
+.card {
+    height: 100%;
+}
+
+body {
+    background-color: #033176;
+}
+
+.hidden {
+    display: none;
+}
