@@ -197,6 +197,10 @@ def success():
         #     return render_template("success.html")
         # print(db.session.query(FuelCell))
         return render_template("success.html")
+
+@app.route('/successful', methods=['POST', 'GET'])
+def output():
+  return render_template('success.html')
     
 if __name__ == '__main__':
     app.debug=True
