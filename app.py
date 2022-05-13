@@ -1,209 +1,101 @@
 # import Flask class and create an instance for this class
-from flask import Flask, render_template, request
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import FetchedValue
+from flask import Flask, render_template, request, url_for
+from test_451_szw import figure_4_1_test_baseline_requirements, figure_4_2_test_baseline_requirements, figure_4_3_test_baseline_requirements, figure_4_4_test_baseline_requirements, figure_4_5_test_baseline_requirements, figure_4_6_test_baseline_requirements, figure_4_7_test_baseline_requirements, figure_4_8_test_baseline_requirements
 
 # define the name of the application's module - app
 app = Flask(__name__)
 # make app know where to connect to the database
-app.config['SQLALCHEMY_DATABASE_URI']='postgresql://postgres:postgre123@localhost/ZeroAvia'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app) # create a SQLAlchemy object for the Flask Application
+
+### perform test
+def tester():
+    section = request.form["section"]
+    if section == '4':
+        test = request.form["test"]
+        category = request.form["category"]
+        if test == "Ground Survival Low Temperature and Short Time Operating Low Temp Test":
+            input1 = request.form["input1"]
+            input2 = request.form["input2"]
+            figure_4_1_test_baseline_requirements(category= category, input1=input1, input2=input2)
+        elif test == "Ground Survival High Temperature and Short Time Operating High Temp Test":
+            input1 = request.form["input1"]
+            input2 = request.form["input2"]
+            figure_4_3_test_baseline_requirements(category= category, input1=input1, input2=input2)
+        elif test == "In-Flight Loss of Cooling Test":
+            input1 = request.form["input1"]
+            input2 = request.form["input2"]
+            figure_4_5_test_baseline_requirements(category= category, cooling_category=input1, input=input2)
+        else:
+            input = request.form["input1"]
+            if test == "Operating Low Temperature Test":
+                figure_4_2_test_baseline_requirements(category= category, input=input)
+            elif test == "Operating High Temperature Test":
+                figure_4_4_test_baseline_requirements(category= category, input=input)
+            elif test == "Altitude Test":
+                figure_4_6_test_baseline_requirements(category= category, input=input)
+            elif test == "Decompression Test":
+                figure_4_7_test_baseline_requirements(category= category, input=input)
+            elif test == "Overpressure Test":
+                figure_4_8_test_baseline_requirements(category= category, input=input)
+
+# Obtain the test result(Image)
+def testResult():
+    section = request.form["section"]
+    imageName = ""
+    if section == '4':
+        test = request.form["test"]
+        # category = request.form["category"]
+        # test pass: operatelow, operatehigh, groundlow, gorundhigh, decompression, overpressure
+        # test fail: altitude, in-flight
+        testOutput = {
+            "Ground Survival Low Temperature and Short Time Operating Low Temp Test": 'groundandoperatinglow.jpg',
+            "Ground Survival High Temperature and Short Time Operating High Temp Test": 'groundandoperatinghigh.jpg',
+            "In-Flight Loss of Cooling Test": 'LoC.jpg',
+            "Operating Low Temperature Test": 'operatinglow.jpg',
+            "Operating High Temperature Test": 'operatinghigh.jpg',
+            "Altitude Test": 'Alt.jpg',
+            "Decompression Test": 'decomp.jpg',
+            "Overpressure Test": 'overpressure.jpg'
+        }
+
+        if test in testOutput:
+            imageName = testOutput[test]
+    return imageName
 
 
-class Temperature(db.Model):
-    __tablename__ = 'temperature'
-    id = db.Column(db.Integer, primary_key=True)
-    opeLowTem = db.Column(db.Float, nullable=False)
-    opeHighTem = db.Column(db.Float)
-    shortLow = db.Column(db.Float)
-    shortHigh = db.Column(db.Float)
-    loss = db.Column(db.Float)
-    groundSurLow = db.Column(db.Float)
-    groundSurHigh = db.Column(db.Float)
-    altitude = db.Column(db.Float)
-    feet = db.Column(db.Float)
-    decompression = db.Column(db.Float)
-    overpression = db.Column(db.Float)
-    category = db.Column(db.String)
-
-
-    def __init__(self, opeLowTem, opeHighTem, shortLow, shortHigh, loss, groundSurLow, groundSurHigh, 
-                 altitude, feet, decompression, overpression, category):
-        self.opeLowTem = opeLowTem
-        self.opeHighTem = opeHighTem
-        self.shortLow = shortLow
-        self.shortHigh = shortHigh
-        self.loss = loss
-        self.groundSurLow = groundSurLow
-        self.groundSurHigh = groundSurHigh
-        self.altitude = altitude
-        self.feet = feet
-        self.decompression = decompression
-        self.overpression = overpression
-        self.category = category
-
-
-@app.route("/")
+@app.route("/", methods = ['GET', 'POST'])
 def index():
-    return render_template("formTest.html")
-
-
-@app.route("/success", methods=['POST'])
-def success():
     if request.method == 'POST':
-        # Temperature and Altitude
-        opeLowTem = request.form["op_low"]
-        opeHighTem = request.form["op_high"]
-        shortLow = request.form["sh_low"]
-        shortHigh = request.form["sh_high"]
-        loss = request.form["loss"]
-        groundSurLow = request.form["gr_Low"]
-        groundSurHigh = request.form["gr_High"]
-        altitude = request.form["alt"]
-        feet = request.form["feet"]
-        decompression = request.form["decom"]
-        overpression = request.form["overpre"]
-        category = request.form["cat"]
+        tester()
+        testOutput = testResult()
+        return render_template("success.html", name=testOutput)
+    else:
+        return render_template("newIndex.html")
 
-        # test inputs
-        print(category)
-        print(opeLowTem, opeHighTem, shortLow, shortHigh, loss)
-        print(groundSurLow, groundSurHigh, altitude, feet)
-        print(decompression, overpression)
-        # Category A1, A2, A3, A4
-        if category == 'A1':
-            opeLowTem, opeHighTem = -15.0, 55.0
-            shortLow, shortHigh = -40.0, 70.0
-            loss = 30.0
-            groundSurLow, groundSurHigh = -55.0, 85.0
-            altitude, feet = 15.0, 4.6
-        elif category == 'A2':
-            opeLowTem, opeHighTem = -15.0, 70.0
-            shortLow, shortHigh = -40.0, 70.0
-            loss = 40.0
-            groundSurLow, groundSurHigh = -55.0, 85.0
-            altitude, feet = 15.0, 4.6
-        elif category == 'A3':
-            opeLowTem, opeHighTem = -15.0, 70.0
-            shortLow, shortHigh = -40.0, 85.0
-            loss = 45.0
-            groundSurLow, groundSurHigh = -55.0, 85.0
-            altitude, feet = 15.0, 4.6
-        elif category == 'A4':
-            opeLowTem = -15.0
-            altitude, feet = 15.0, 4.6
-        # Category B1, B2, B3, B4
-        elif category == 'B1':
-            opeLowTem, opeHighTem = -20.0, 55.0
-            shortLow, shortHigh = -40.0, 70.0
-            loss = 30.0
-            groundSurLow, groundSurHigh = 55.0, 85.0
-            altitude, feet = 25.0, 7.6
-        elif category == 'B2':
-            opeLowTem, opeHighTem = -20.0, 70.0
-            shortLow, shortHigh = -45.0, 70.0
-            loss = 40.0
-            groundSurLow, groundSurHigh = -55.0, 85.0
-            altitude, feet = 25.0, 7.6
-        elif category == 'B3':
-            opeLowTem = -45.0
-            altitude, feet = 25.0, 7.6
-        elif category == 'B4':
-            groundSurLow, groundSurHigh = -55.0, 85.0
-            altitude, feet = 25.0, 7.6
-        # Category C1, C2, C3, C4
-        elif category == 'C1':
-            opeLowTem, opeHighTem = -20.0, 55.0
-            shortLow, shortHigh = -40.0, 70.0
-            loss = 30.0
-            groundSurLow, groundSurHigh = -55.0, 85.0
-            altitude, feet = 35.0, 10.7
-        elif category == 'C2':
-            opeLowTem, opeHighTem = -55.0, 70.0
-            shortLow, shortHigh = -55.0, 70.0
-            loss = 40.0
-            groundSurLow, groundSurHigh = -55.0, 85.0
-            altitude, feet = 35.0, 10.7
-        elif category == 'C3':
-            opeLowTem = -55.0
-            altitude, feet = 35.0, 10.7
-        elif category == 'C4':
-            groundSurLow, groundSurHigh = -55.0, 85.0
-            altitude, feet = 35.0, 10.7
-        # Category D1, D2, D3
-        elif category == 'D1':
-            opeLowTem, opeHighTem = -20.0, 55.0
-            shortLow, shortHigh = -40.0, 70.0
-            loss = 30.0
-            groundSurLow, groundSurHigh = -55.0, 85.0
-            altitude, feet = 50.0, 15.2
-        elif category == 'D2':
-            opeLowTem, opeHighTem = -55.0, 70.0
-            shortLow, shortHigh = -55.0, 70.0
-            loss = 40.0
-            groundSurLow, groundSurHigh = -55.0, 85.0
-            altitude, feet = 50.0, 15.2
-        elif category == 'D3':
-            opeLowTem = -55.0
-            shortLow = -55.0
-            groundSurLow = -55.0
-            altitude, feet = 50.0, 15.2
-        # Category E1, E2
-        elif category == 'E1':
-            opeLowTem = -55.0
-            shortLow = -55.0
-            groundSurLow, groundSurHigh = -55.0, 85.0
-            altitude, feet = 70.0, 21.3
-        elif category == 'E2':
-            opeLowTem = -55.0
-            shortLow = -55.0
-            groundSurLow = -55.0
-            altitude, feet = 70.0, 21.3
-        # Category F1, F2, F3
-        elif category == 'F1':
-            opeLowTem, opeHighTem = -20.0, 55.0
-            shortLow, shortHigh = -40.0, 70.0
-            loss = 30.0
-            groundSurLow, groundSurHigh = -55.0, 85.0
-            altitude, feet = 55.0, 16.8
-        elif category == 'F2':
-            opeLowTem, opeHighTem = -55.0, 70.0
-            shortLow, shortHigh = -55.0, 70.0
-            loss = 40.0
-            groundSurLow, groundSurHigh = -55.0, 85.0
-            altitude, feet = 55.0, 16.8
-        elif category == 'F3':
-            opeLowTem = -55.0
-            shortLow = -55.0
-            groundSurLow= -55.0
-            altitude, feet = 55.0, 16.8
+@app.route('/section', methods=['POST', 'GET'])
+def process_section():
+  if request.method == "POST":
+    section = request.get_json()
+    print(section[0]['section'])
+    return section[0]['section']
+
+@app.route('/category', methods=['POST', 'GET'])
+def process_category():
+  if request.method == "POST":
+    category = request.get_json()
+    print(category[0]['category'])
+    if category[0]['category'] == 'A1':
+        print('A1')
+    return category[0]['category']
+
+@app.route('/test', methods=['POST', 'GET'])
+def process_test():
+  if request.method == "POST":
+    test = request.get_json()
+    print(test[0]['test'])
+    return test[0]['test']
 
 
-        tempData = Temperature(opeLowTem, opeHighTem, shortLow, shortHigh, loss, 
-                                    groundSurLow, groundSurHigh, altitude, feet,
-                                    decompression, overpression, category)
-        db.session.add(tempData)
-
-        # commit in db
-        db.session.commit()
-
-        # check if the email has already existed in the db
-        # it's a int 
-        # if db.session.query(Data).filter(Data.height_== height).count() == 0:
-        #     data = Data(height) #create a data object
-        #     db.session.add(data)
-        #     db.session.commit()
-        #     return render_template("success.html")
-        # print(db.session.query(FuelCell))
-        return render_template("success.html")
-
-@app.route('/successful', methods=['POST', 'GET'])
-def output():
-  return render_template('success.html')
-    
 if __name__ == '__main__':
     app.debug=True
     # app.run(debug=True, port=8080)
     app.run()
-    
