@@ -1,9 +1,11 @@
 # 4.5 Temperature Tests
 from re import S
 import pandas as pd
+import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 
+matplotlib.use('WebAgg')
 print('tester program running')
 
 #table_4_1 = pd.read_csv('table_4_1_Pressure_Values_for_Various_Pressure_Alt-Sheet1.csv', index_col=0)
