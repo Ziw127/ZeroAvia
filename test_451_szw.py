@@ -103,7 +103,7 @@ tester = temperature_tests("A4")
 # Ground Survival Low Temperature and Short Time Operating Low Temp Test
 
 
-def figure_4_1_test_baseline_requirements(stab_time=30*60, int_stab_time=2100, category="", input1='', input2=''):
+def figure_4_1_test_baseline_requirements(stab_time=30*60, int_stab_time=2100, category="", input1='', input2='', path=''):
     print('called')
     note1 = temperature_tests(category).check_for_notes(
         'short_time_operating_low_temp', input=input1)
@@ -124,7 +124,7 @@ def figure_4_1_test_baseline_requirements(stab_time=30*60, int_stab_time=2100, c
     plt.plot(np.cumsum(dt), temps)
     plt.title(
         'Ground Survival Low Temperature And Short Time Operating Low Temp Test Requirements')
-    plt.savefig('static\groundandoperatinglow.jpg')
+    plt.savefig(path)
     plt.close()
     pass
 

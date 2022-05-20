@@ -2,6 +2,7 @@
 from flask import Flask, render_template, request, send_file, url_for
 from test_451_szw import figure_4_1_test_baseline_requirements, figure_4_2_test_baseline_requirements, figure_4_3_test_baseline_requirements, figure_4_4_test_baseline_requirements, figure_4_5_test_baseline_requirements, figure_4_6_test_baseline_requirements, figure_4_7_test_baseline_requirements, figure_4_8_test_baseline_requirements
 import os
+import time
 # define the name of the application's module - app
 app = Flask(__name__)
 # make app know where to connect to the database
@@ -21,14 +22,14 @@ def testResult():
         # test pass: operatelow, operatehigh, groundlow, gorundhigh, decompression, overpressure
         # test fail: altitude, in-flight
         testOutput = {
-            "Ground Survival Low Temperature and Short Time Operating Low Temp Test": 'groundandoperatinglow.jpg',
-            "Ground Survival High Temperature and Short Time Operating High Temp Test": 'groundandoperatinghigh.jpg',
-            "In-Flight Loss of Cooling Test": 'LoC.jpg',
-            "Operating Low Temperature Test": 'operatinglow.jpg',
-            "Operating High Temperature Test": 'operatinghigh.jpg',
+            "Ground Survival Low Temperature and Short Time Operating Low Temp Test": 'groundandoperatinglow',
+            "Ground Survival High Temperature and Short Time Operating High Temp Test": 'groundandoperatinghigh',
+            "In-Flight Loss of Cooling Test": 'LoC',
+            "Operating Low Temperature Test": 'operatinglow',
+            "Operating High Temperature Test": 'operatinghigh',
             "Altitude Test": 'Alt.jpg',
-            "Decompression Test": 'decomp.jpg',
-            "Overpressure Test": 'overpressure.jpg'
+            "Decompression Test": 'decomp',
+            "Overpressure Test": 'overpressure'
         }
 
         if test in testOutput:
@@ -40,9 +41,14 @@ def testResult():
 def tester():
     image, section = testResult()
     dir_path = 'static'
-    if image in os.listdir(dir_path):
-        path = os.path.join(dir_path, image)
-        os.remove(path)
+    for filename in os.listdir(dir_path):
+        if filename.startswith(image):
+            path = os.path.join(dir_path, filename)
+            os.remove(path)
+    realTime = str(time.time()).split('.')[1]
+    newImage = image + realTime + ".jpg"
+    pathTest = os.path.join(dir_path, newImage)
+    imageResult.append(pathTest)
 
     section = request.form["section"]
     if section == '4':
@@ -52,7 +58,7 @@ def tester():
             input1 = request.form["input1"]
             input2 = request.form["input2"]
             figure_4_1_test_baseline_requirements(
-                category=category, input1=input1, input2=input2)
+                category=category, input1=input1, input2=input2, path=pathTest)
         elif test == "Ground Survival High Temperature and Short Time Operating High Temp Test":
             input1 = request.form["input1"]
             input2 = request.form["input2"]
@@ -80,6 +86,7 @@ def tester():
             elif test == "Overpressure Test":
                 figure_4_8_test_baseline_requirements(
                     category=category, input=input)
+    return newImage
 
 
 @app.route("/", methods=['GET', 'POST'])
@@ -92,10 +99,8 @@ def index():
         #     path = os.path.join(dir_path, image)
         #     os.remove(path)
         # do test
-        tester()
-        Image, Section = testResult()
-        path = os.path.join('static', Image)
-        imageResult.append(path)
+        Section = request.form["section"]
+        Image = tester()
         return render_template("success.html", name=Image, section=Section)
     else:
         return render_template("newIndex.html")
