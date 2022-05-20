@@ -131,7 +131,7 @@ def figure_4_1_test_baseline_requirements(stab_time=30*60, int_stab_time=2100, c
     # Operating Low Temperature Test
 
 
-def figure_4_2_test_baseline_requirements(stab_time=30*60,  category="", input=''):
+def figure_4_2_test_baseline_requirements(stab_time=30*60,  category="", input='', path=''):
     note = temperature_tests(category).check_for_notes(
         'operating_low_temp', input=input)
     dT0, temp0, op0 = 0, 22, 1
@@ -144,14 +144,14 @@ def figure_4_2_test_baseline_requirements(stab_time=30*60,  category="", input='
     plt.ylabel('Temperature (C)')
     plt.plot(np.cumsum(dt), temps)
     plt.title('Operating Low Temp Test Requirements')
-    plt.savefig('static\operatinglow.jpg')
+    plt.savefig(path)
     plt.close()
     pass
 
     # Ground Survival High Temperature and Short Time Operating High Temp Test
 
 
-def figure_4_3_test_baseline_requirements(stab_time=30*60, int_stab_time=2100, category="", input1='', input2=''):
+def figure_4_3_test_baseline_requirements(stab_time=30*60, int_stab_time=2100, category="", input1='', input2='', path=''):
     note1 = temperature_tests(category).check_for_notes(
         'short_time_operating_high_temp', input=input1)
     note2 = temperature_tests(category).check_for_notes(
@@ -170,14 +170,14 @@ def figure_4_3_test_baseline_requirements(stab_time=30*60, int_stab_time=2100, c
     plt.plot(np.cumsum(dt), temps)
     plt.title(
         'Ground Survival High Temperature and Short Time Operating High Temp Test')
-    plt.savefig('static\groundandoperatinghigh.jpg')
+    plt.savefig(path)
     plt.close()
     pass
 
     # Operating High Temperature Test
 
 
-def figure_4_4_test_baseline_requirements(stab_time=30*60, category="", input=''):
+def figure_4_4_test_baseline_requirements(stab_time=30*60, category="", input='', path=''):
     note = temperature_tests(category).check_for_notes(
         'operating_high_temp', input=input)
     dT0, temp0, op0 = 0, 22, 1
@@ -190,14 +190,14 @@ def figure_4_4_test_baseline_requirements(stab_time=30*60, category="", input=''
     plt.ylabel('Temperature (C)')
     plt.plot(np.cumsum(dt), temps)
     plt.title('Operating High Temperature')
-    plt.savefig('static\operatinghigh.jpg')
+    plt.savefig(path)
     plt.close()
     pass
 
     # In-Flight Loss of Cooling Test
 
 
-def figure_4_5_test_baseline_requirements(cooling_category='', stab_time=30*60,  category="", input=''):
+def figure_4_5_test_baseline_requirements(cooling_category='', stab_time=30*60,  category="", input='', path=''):
     # WE MUST TAKE AN INPUT HERE FOR THE LOSS OF COOLING CATEGORY
     # Category V - 30 minutes minimum
     # Category W - 90 minutes minimum
@@ -223,14 +223,14 @@ def figure_4_5_test_baseline_requirements(cooling_category='', stab_time=30*60, 
     plt.ylabel('Temperature (C)')
     plt.plot(np.cumsum(dt), temps)
     plt.title('In-flight loss of cooling Test')
-    plt.savefig('static\LoC.jpg')
+    plt.savefig(path)
     plt.close()
     pass
 
     # Altitude Test
 
 
-def figure_4_6_test_baseline_requirements(stab_time=30*60,  category="", input=''):
+def figure_4_6_test_baseline_requirements(stab_time=30*60,  category="", input='', path=''):
     tester.altitude_thousands_of_meters = tester.check_for_notes(
         'altitude_thousands_of_meters', input=input)
     alts = [-4572, -457, 0, 2438, 4572, 7620,
@@ -251,14 +251,14 @@ def figure_4_6_test_baseline_requirements(stab_time=30*60,  category="", input='
     plt.ylabel('Pressure (kPa)')
     plt.plot(np.cumsum(dt), temps)
     plt.title('Altitude Test')
-    plt.savefig('static\Alt.jpg')
+    plt.savefig(path)
     plt.close()
     pass
 
     # Decompression Test
 
 
-def figure_4_7_test_baseline_requirements(stab_time=30*60,  category="", input=''):
+def figure_4_7_test_baseline_requirements(stab_time=30*60,  category="", input='', path=''):
     note = temperature_tests(category).check_for_notes(
         'decompression_test', input=input)
     dT0, p0, op0 = 0, 101.32, 1
@@ -272,14 +272,14 @@ def figure_4_7_test_baseline_requirements(stab_time=30*60,  category="", input='
     plt.ylabel('Pressure (kPa)')
     plt.plot(np.cumsum(dt), temps)
     plt.title('Decompression Test')
-    plt.savefig('static\decomp.jpg')
+    plt.savefig(path)
     plt.close()
     pass
 
     # Overpressure Test
 
 
-def figure_4_8_test_baseline_requirements(category="", input=''):
+def figure_4_8_test_baseline_requirements(category="", input='', path=''):
     note = temperature_tests(category).check_for_notes(
         'overpressure_test', input=input)
     dT0, p0, op0 = 0, 101.32, 1
@@ -293,7 +293,7 @@ def figure_4_8_test_baseline_requirements(category="", input=''):
     plt.ylabel('Pressure (kPa)')
     plt.plot(np.cumsum(dt), temps)
     plt.title('Overpressure Test')
-    plt.savefig('static\overpressure.jpg')
+    plt.savefig(path)
     plt.close()
     pass
 

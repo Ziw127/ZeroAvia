@@ -45,6 +45,7 @@
 </head>
 <body>
     <h1 style="font-size: 50px">Test Result<br>Section {{section}}</h1>
+    <h1 style="font-size: 40px">{{test}}</h1>
     <div class="flex-container">
         <div class="flex-item">
             <h1>Test Result</h1> 
@@ -65,8 +66,11 @@
             />
         </div>
     </div>
-    <div align = "center" style="position: relative; top:10px">
+    <div align = "center" style="position: relative; top:20px">
         <button class="button"><a href="{{ url_for('.download_image') }}">Download</a></button>
+    </div>
+    <div align = "center" style="position: relative; top:10px; margin: 20px">
+        <button class="button"><a href="{{ url_for('.download_image') }}">Return To Test</a></button>
     </div>
      
 </body>

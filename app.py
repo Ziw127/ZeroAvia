@@ -5,8 +5,8 @@ import os
 import time
 # define the name of the application's module - app
 app = Flask(__name__)
-# make app know where to connect to the database
-imageResult = []
+# collect all the image paths
+imagePath = []
 
 # Obtain the test result(Image)
 
@@ -16,7 +16,7 @@ def testResult():
     imageName = ""
     sectionName = ""
     if section == '4':
-        sectionName = '4.0 Temperature and Altitude'
+        sectionName = '4 Temperature and Altitude'
         test = request.form["test"]
         # category = request.form["category"]
         # test pass: operatelow, operatehigh, groundlow, gorundhigh, decompression, overpressure
@@ -31,15 +31,17 @@ def testResult():
             "Decompression Test": 'decomp',
             "Overpressure Test": 'overpressure'
         }
-
         if test in testOutput:
             imageName = testOutput[test]
+    elif section == '6':
+        sectionName = '6 Humidity'
+        imageName = 'humidity'
     return (imageName, sectionName)
 
 
 # perform test
 def tester():
-    image, section = testResult()
+    image, sectionName = testResult()
     dir_path = 'static'
     for filename in os.listdir(dir_path):
         if filename.startswith(image):
@@ -47,61 +49,54 @@ def tester():
             os.remove(path)
     realTime = str(time.time()).split('.')[1]
     newImage = image + realTime + ".jpg"
-    pathTest = os.path.join(dir_path, newImage)
-    imageResult.append(pathTest)
+    path = os.path.join(dir_path, newImage)
+    imagePath.append(path)
 
     section = request.form["section"]
     if section == '4':
         test = request.form["test"]
+        testName = test
         category = request.form["category"]
         if test == "Ground Survival Low Temperature and Short Time Operating Low Temp Test":
             input1 = request.form["input1"]
             input2 = request.form["input2"]
             figure_4_1_test_baseline_requirements(
-                category=category, input1=input1, input2=input2, path=pathTest)
+                category=category, input1=input1, input2=input2, path=path)
         elif test == "Ground Survival High Temperature and Short Time Operating High Temp Test":
             input1 = request.form["input1"]
             input2 = request.form["input2"]
             figure_4_3_test_baseline_requirements(
-                category=category, input1=input1, input2=input2)
+                category=category, input1=input1, input2=input2, path=path)
         elif test == "In-Flight Loss of Cooling Test":
             input1 = request.form["input1"]
             input2 = request.form["input2"]
             figure_4_5_test_baseline_requirements(
-                category=category, cooling_category=input1, input=input2)
+                category=category, cooling_category=input1, input=input2, path=path)
         else:
             input = request.form["input1"]
             if test == "Operating Low Temperature Test":
                 figure_4_2_test_baseline_requirements(
-                    category=category, input=input)
+                    category=category, input=input, path=path)
             elif test == "Operating High Temperature Test":
                 figure_4_4_test_baseline_requirements(
-                    category=category, input=input)
+                    category=category, input=input, path=path)
             elif test == "Altitude Test":
                 figure_4_6_test_baseline_requirements(
-                    category=category, input=input)
+                    category=category, input=input, path=path)
             elif test == "Decompression Test":
                 figure_4_7_test_baseline_requirements(
-                    category=category, input=input)
+                    category=category, input=input, path=path)
             elif test == "Overpressure Test":
                 figure_4_8_test_baseline_requirements(
-                    category=category, input=input)
-    return newImage
+                    category=category, input=input, path=path)
+    return (newImage, sectionName, testName)
 
 
 @app.route("/", methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
-        # obtain the test result and delete the previous test result.
-        # image, Section = testResult()
-        # dir_path = 'static'
-        # if image in os.listdir(dir_path):
-        #     path = os.path.join(dir_path, image)
-        #     os.remove(path)
-        # do test
-        Section = request.form["section"]
-        Image = tester()
-        return render_template("success.html", name=Image, section=Section)
+        Image, Section, Test = tester()
+        return render_template("success.html", name=Image, section=Section, test=Test)
     else:
         return render_template("newIndex.html")
 
@@ -109,8 +104,8 @@ def index():
 @app.route('/downloadNew', methods=['GET', 'POST'])
 def download_image():
     if request.method == 'GET':
-        path = imageResult[-1]
-        print(path)
+        path = imagePath[-1]
+        # print(path)
         return send_file(path, as_attachment=True)
 
 
