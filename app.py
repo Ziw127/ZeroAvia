@@ -1,6 +1,7 @@
 # import Flask class and create an instance for this class
 from flask import Flask, render_template, request, send_file, url_for
 from test_451_szw import figure_4_1_test_baseline_requirements, figure_4_2_test_baseline_requirements, figure_4_3_test_baseline_requirements, figure_4_4_test_baseline_requirements, figure_4_5_test_baseline_requirements, figure_4_6_test_baseline_requirements, figure_4_7_test_baseline_requirements, figure_4_8_test_baseline_requirements
+from test_humidity import humidity_test, humidity_test_active
 import os
 import time
 # define the name of the application's module - app
@@ -89,7 +90,11 @@ def tester():
             elif test == "Overpressure Test":
                 figure_4_8_test_baseline_requirements(
                     category=category, input=input, path=path)
-    return (newImage, sectionName, testName)
+        return (newImage, sectionName, testName)
+    elif section == '5':
+        input = request.form['input1']
+        humidity_test(input)
+        humidity_test_active(input)
 
 
 @app.route("/", methods=['GET', 'POST'])
