@@ -64,7 +64,7 @@ class humidity_test():
         plt.savefig('humidity_testa.jpg')
 
 
-humidity_test_active = humidity_test("A")
+# humidity_test_active = humidity_test("A")
 # this needs to change to accomindate different inputs A,B or C.
-humidity_test_active.set_category_variables()
-humidity_test_active.plot_equipment_category()
+# humidity_test_active.set_category_variables()
+# humidity_test_active.plot_equipment_category()
