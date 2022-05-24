@@ -11,6 +11,7 @@ imagePath = []
 
 # Obtain the test result(Image)
 
+
 def testResult():
     section = request.form["section"]
     imageName = ""
@@ -33,9 +34,9 @@ def testResult():
         }
         if test in testOutput:
             imageName = testOutput[test]
-    # elif section == '6':
-    #     sectionName = '6 Humidity'
-    #     imageName = 'humidity'
+    elif section == '6':
+        sectionName = '6 Humidity'
+        imageName = 'humidity'
     return (imageName, sectionName)
 
 

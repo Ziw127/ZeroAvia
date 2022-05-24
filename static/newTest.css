@@ -38,3 +38,18 @@ h1 {
 .projectTitle{
     padding-bottom: 30px;
 }
+.button {
+    background-color: #ffb300; /* Green */
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    border: #4CAF50 solid;
+    cursor: pointer;
+}
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+background-color: #3e8e41;
+box-shadow: 0 5px #666;
+transform: translateY(4px);
+}
