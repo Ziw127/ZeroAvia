@@ -15,9 +15,25 @@
 }
 
 body {
-    background-color: rgb(88, 30, 139);
+    background-color: rgb(255, 87, 51);
 }
 
 .hidden {
     display: none;
+}
+
+.card {
+    height: 600px;
+}
+
+mark.orange {
+    color: rgb(248,149,19)
+}
+
+mark.blue {
+    color: rgb(5,5,100)
+}
+
+h1 {
+    color: white;
 }

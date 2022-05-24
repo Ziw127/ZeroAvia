@@ -129,7 +129,7 @@ function inputs(test, category, section) {
             }
         }
     }
-    if (section == "5") {
+    if (section == "6") {
         document.getElementById("input1").classList.remove("hidden");
     }
 }

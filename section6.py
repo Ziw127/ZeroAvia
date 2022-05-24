@@ -45,8 +45,8 @@ class humidity_test():
             self.title_for_plot = "External Humidity Enviroment"
             self.num_of_cyles = 6  # 144 hours
 
-    def plot_equipment_category(self):
-
+    def plot_equipment_category(self, path=''):
+        print(path)
         f = plt.figure()
         plt.xlabel('Time (hours)')
         plt.ylabel('Temperature and Humidity')
@@ -61,10 +61,12 @@ class humidity_test():
 
         plt.legend()
         plt.title(self.title_for_plot)
-        plt.savefig('humidity_testa.jpg')
+        plt.savefig(path)
+        plt.close()
+        pass
 
 
-humidity_test_active = humidity_test("A")
+# humidity_test_active = humidity_test("A")
 # this needs to change to accomindate different inputs A,B or C.
-humidity_test_active.set_category_variables()
-humidity_test_active.plot_equipment_category()
+# humidity_test_active.set_category_variables()
+# humidity_test_active.plot_equipment_category()
