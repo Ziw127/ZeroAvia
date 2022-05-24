@@ -37,9 +37,14 @@ function chooseSection(){
    else {
       console.log("something happened")
       }
+   console.log(test.value)
+   console.log(category.value)
+   console.log(section)
+   inputs(test.value, category.value, section);
+
 }
 
-function inputs(test, category) {
+function inputs(test, category, section) {
     input1 = document.getElementById("input1");
     input2 = document.getElementById("input2");
     input3 = document.getElementById("input3");
@@ -72,55 +77,60 @@ function inputs(test, category) {
     console.log("before if")
     console.log(test)
     console.log(category)
-    if (test == "Ground Survival Low Temperature and Short Time Operating Low Temp Test"){
-        console.log("inside if")
-        if (category == "A4" || category == "B3" || category == "C3"){
-            document.getElementById("input1").classList.remove("hidden");
-            document.getElementById("input2").classList.remove("hidden");
-            console.log("A4 if statement")
+    if (section == "4") {
+        if (test == "Ground Survival Low Temperature and Short Time Operating Low Temp Test"){
+            console.log("inside if")
+            if (category == "A4" || category == "B3" || category == "C3"){
+                document.getElementById("input1").classList.remove("hidden");
+                document.getElementById("input2").classList.remove("hidden");
+                console.log("A4 if statement")
+            }
+            if (category == "B4" || category == "C4"){
+                document.getElementById("input1").classList.remove("hidden");
+            }
         }
-        if (category == "B4" || category == "C4"){
-            document.getElementById("input1").classList.remove("hidden");
+        else if (test == "Ground Survival High Temperature and Short Time Operating High Temp Test"){
+            console.log("inside if")
+            if (category == "A4" || category == "B3" || category == "C3" || category == "D3" || category == "E2" || category == "F3"){
+                document.getElementById("input1").classList.remove("hidden");
+                document.getElementById("input2").classList.remove("hidden");
+                console.log("A4 if statement")
+            }
+            if (category == "B4" || category == "C4" || category == "E1"){
+                document.getElementById("input1").classList.remove("hidden");
+            }
         }
-    }
-    else if (test == "Ground Survival High Temperature and Short Time Operating High Temp Test"){
-        console.log("inside if")
-        if (category == "A4" || category == "B3" || category == "C3" || category == "D3" || category == "E2" || category == "F3"){
-            document.getElementById("input1").classList.remove("hidden");
-            document.getElementById("input2").classList.remove("hidden");
-            console.log("A4 if statement")
-        }
-        if (category == "B4" || category == "C4" || category == "E1"){
-            document.getElementById("input1").classList.remove("hidden");
-        }
-    }
 
-    // need to finish
-    else if (test == "Operating Low Temperature Test"){
-        if (category == "B4" || category == "C4") {
-            document.getElementById("input1").classList.remove("hidden");
+        // need to finish
+        else if (test == "Operating Low Temperature Test"){
+            if (category == "B4" || category == "C4") {
+                document.getElementById("input1").classList.remove("hidden");
+            }
+        }
+        else if (test == "Operating High Temperature Test"){
+            if (category == "A4" || category == "B3" || category == "B4" || category == "C3" || category == "C4" || category == "D3" || category == "E1" || category == "E2" || category == "F3") {
+                document.getElementById("input1").classList.remove("hidden");
+            }
+        }
+        else if (test == "In-Flight Loss of Cooling Test"){
+                document.getElementById("input1").classList.remove("hidden");
+            if (category == "A4" || category == "B3" || category == "B4" || category == "C3" || category == "C4" || category == "D3" || category == "E1" || category == "E2" || category == "F3") {
+                document.getElementById("input2").classList.remove("hidden");
+            }
+        }
+        else if (test == "Decompression Test"){
+            if (category == "A1" || category == "A2" || category == "A3" || category == "A4"){
+                document.getElementById("input1").classList.remove("hidden");
+            }
+        }
+        else if (test == "Overpressure Test"){
+            if (category == "A1" || category == "A2" || category == "A3" || category == "A4"){
+                document.getElementById("input1").classList.remove("hidden");
+            }
         }
     }
-    else if (test == "Operating High Temperature Test"){
-        if (category == "A4" || category == "B3" || category == "B4" || category == "C3" || category == "C4" || category == "D3" || category == "E1" || category == "E2" || category == "F3") {
-            document.getElementById("input1").classList.remove("hidden");
-        }
-    }
-    else if (test == "In-Flight Loss of Cooling Test"){
-            document.getElementById("input1").classList.remove("hidden");
-        if (category == "A4" || category == "B3" || category == "B4" || category == "C3" || category == "C4" || category == "D3" || category == "E1" || category == "E2" || category == "F3") {
-            document.getElementById("input2").classList.remove("hidden");
-        }
-    }
-    else if (test == "Decompression Test"){
-        if (category == "A1" || category == "A2" || category == "A3" || category == "A4"){
-            document.getElementById("input1").classList.remove("hidden");
-        }
-    }
-    else if (test == "Overpressure Test"){
-        if (category == "A1" || category == "A2" || category == "A3" || category == "A4"){
-            document.getElementById("input1").classList.remove("hidden");
-        }
+    if (section == "6") {
+        document.getElementById("input1").classList.remove("hidden");
     }
 }
 
@@ -142,10 +152,7 @@ function chooseCategory(){
      console.log(result);
    }
  });
- inputs(document.getElementById("selectedTest").value, category);
- console.log(inputs(document.getElementById("selectedTest").value, category))
- console.log(document.getElementById("selectedTest").value)
- console.log(category)
+ inputs(document.getElementById("selectedTest").value, category, document.getElementById("selectedSection").value);
 }
 
 function chooseTest(){
@@ -186,8 +193,5 @@ function chooseTest(){
     }
  }
 
- inputs(test, document.getElementById("selectedCategory").value);
- console.log(inputs(test, document.getElementById("selectedCategory").value))
- console.log(document.getElementById("selectedCategory").value)
- console.log(test)
+ inputs(test, document.getElementById("selectedCategory").value, document.getElementById("selectedSection").value);
 }

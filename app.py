@@ -1,6 +1,7 @@
 # import Flask class and create an instance for this class
 from flask import Flask, render_template, request, send_file, url_for
 from test_451_szw import figure_4_1_test_baseline_requirements, figure_4_2_test_baseline_requirements, figure_4_3_test_baseline_requirements, figure_4_4_test_baseline_requirements, figure_4_5_test_baseline_requirements, figure_4_6_test_baseline_requirements, figure_4_7_test_baseline_requirements, figure_4_8_test_baseline_requirements
+from section6 import humidity_test
 import os
 import time
 # define the name of the application's module - app
@@ -9,7 +10,6 @@ app = Flask(__name__)
 imagePath = []
 
 # Obtain the test result(Image)
-
 
 def testResult():
     section = request.form["section"]
@@ -42,17 +42,23 @@ def testResult():
 # perform test
 def tester():
     image, sectionName = testResult()
+    print("image" + image)
+    print("sectionName" + sectionName)
     dir_path = 'static'
     for filename in os.listdir(dir_path):
         if filename.startswith(image):
             path = os.path.join(dir_path, filename)
+            print("path" + path)
             os.remove(path)
     realTime = str(time.time()).split('.')[1]
     newImage = image + realTime + ".jpg"
     path = os.path.join(dir_path, newImage)
+    print(path)
     imagePath.append(path)
 
+    testName = "No Test for this part"
     section = request.form["section"]
+    # print(section)
     if section == '4':
         test = request.form["test"]
         testName = test
@@ -89,6 +95,13 @@ def tester():
             elif test == "Overpressure Test":
                 figure_4_8_test_baseline_requirements(
                     category=category, input=input, path=path)
+
+    elif section == '6':
+        input = request.form['input1']
+        humidity = humidity_test(input)
+        humidity.set_category_variables()
+        humidity.plot_equipment_category(path=path)
+
     return (newImage, sectionName, testName)
 
 
