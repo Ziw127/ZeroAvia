@@ -123,7 +123,7 @@ def figure_4_1_test_baseline_requirements(stab_time=30*60, int_stab_time=2100, c
     plt.ylabel('Temperature (C)')
     plt.plot(np.cumsum(dt), temps)
     plt.title(
-        'Ground Survival Low Temperature And Short Time Operating Low Temp Test Requirements')
+        'Ground Survival Low Temperature And Short\nTime Operating Low Temperature Test')
     plt.savefig(path)
     plt.close()
     pass
@@ -169,7 +169,7 @@ def figure_4_3_test_baseline_requirements(stab_time=30*60, int_stab_time=2100, c
     plt.ylabel('Temperature (C)')
     plt.plot(np.cumsum(dt), temps)
     plt.title(
-        'Ground Survival High Temperature and Short Time Operating High Temp Test')
+        'Ground Survival High Temperature and Short\nTime Operating High Temperature Test')
     plt.savefig(path)
     plt.close()
     pass
@@ -189,7 +189,7 @@ def figure_4_4_test_baseline_requirements(stab_time=30*60, category="", input=''
     plt.xlabel('Time (s)')
     plt.ylabel('Temperature (C)')
     plt.plot(np.cumsum(dt), temps)
-    plt.title('Operating High Temperature')
+    plt.title('Operating High Temperature Test')
     plt.savefig(path)
     plt.close()
     pass

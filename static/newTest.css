@@ -15,7 +15,7 @@
 }
 
 body {
-    background-color: rgb(255, 87, 51);
+    background-color: rgb(88, 30, 139);
 }
 
 .hidden {
@@ -26,14 +26,15 @@ body {
     height: 600px;
 }
 
-mark.orange {
-    color: rgb(248,149,19)
-}
-
-mark.blue {
-    color: rgb(5,5,100)
+img.logo {
+    height:100px;
 }
 
 h1 {
     color: white;
+    font-size: 50px
+}
+
+.projectTitle{
+    padding-bottom: 30px;
 }
