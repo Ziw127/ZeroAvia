@@ -11,6 +11,7 @@ imagePath = []
 
 # Obtain the test result(Image)
 
+
 def testResult():
     section = request.form["section"]
     imageName = ""
@@ -27,7 +28,7 @@ def testResult():
             "In-Flight Loss of Cooling Test": 'LoC',
             "Operating Low Temperature Test": 'operatinglow',
             "Operating High Temperature Test": 'operatinghigh',
-            "Altitude Test": 'Alt.jpg',
+            "Altitude Test": 'Alt',
             "Decompression Test": 'decomp',
             "Overpressure Test": 'overpressure'
         }
@@ -113,12 +114,14 @@ def index():
     else:
         return render_template("newIndex.html")
 
+# only works when disabling cache
+
 
 @app.route('/downloadNew', methods=['GET', 'POST'])
 def download_image():
     if request.method == 'GET':
         path = imagePath[-1]
-        # print(path)
+        print(path)
         return send_file(path, as_attachment=True)
 
 
